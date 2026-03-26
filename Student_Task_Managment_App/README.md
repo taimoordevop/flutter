@@ -110,3 +110,128 @@ Built with Flutter and powered by Firebase, TaskMaster delivers a smooth, real-t
    ```bash
    git clone https://github.com/yourusername/taskmaster.git
    cd taskmaster
+---
+
+2. **Install dependencies for both apps**
+   ```bash
+   # For Admin App
+   cd task_admin
+   flutter pub get
+   
+   # For Student App
+   cd ../task_student
+   flutter pub get
+   ```
+
+3. **Firebase Setup**
+   - Create a new Firebase project
+   - Register Android/iOS apps
+   - Download and add `google-services.json` (Android) or `GoogleService-Info.plist` (iOS)
+   - Enable Authentication, Firestore, and Storage
+
+4. **Run the apps**
+   ```bash
+   # Admin App
+   flutter run -t lib/main_admin.dart
+   
+   # Student App
+   flutter run -t lib/main_student.dart
+   ```
+
+---
+
+## 📱 Download APKs
+
+<p align="center">
+  <a href="#">
+    <img src="https://img.shields.io/badge/👨‍💼-Download%20Admin%20APK-FF6B6B?style=for-the-badge&logo=android&logoColor=white" alt="Admin APK">
+  </a>
+  <a href="#">
+    <img src="https://img.shields.io/badge/👨‍🎓-Download%20Student%20APK-4ECDC4?style=for-the-badge&logo=android&logoColor=white" alt="Student APK">
+  </a>
+</p>
+
+---
+
+## 🎥 Demo Video
+
+<p align="center">
+  <a href="#">
+    <img src="https://img.shields.io/badge/▶️-Watch%20Demo%20Video-FF0000?style=for-the-badge&logo=youtube&logoColor=white" alt="Watch Demo">
+  </a>
+</p>
+
+---
+
+## 📁 Project Structure
+
+```
+taskmaster/
+├── task_admin/              # Admin Application
+│   ├── lib/
+│   │   ├── screens/         # UI Screens
+│   │   ├── models/          # Data Models
+│   │   ├── providers/       # State Management
+│   │   └── services/        # Firebase Services
+│   └── pubspec.yaml
+│
+└── task_student/            # Student Application
+    ├── lib/
+    │   ├── screens/         # UI Screens
+    │   ├── models/          # Data Models
+    │   ├── providers/       # State Management
+    │   └── services/        # Firebase Services
+    └── pubspec.yaml
+```
+
+---
+
+## 🔄 Future Enhancements
+
+- [ ] Push Notifications for task reminders
+- [ ] File attachments for assignments
+- [ ] In-app messaging between admins and students
+- [ ] Export performance reports as PDF
+- [ ] Biometric authentication
+- [ ] Dark mode support
+- [ ] Multi-language support
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Here's how you can help:
+
+1. 🐛 Report bugs and issues
+2. 💡 Suggest new features
+3. 📝 Improve documentation
+4. 🔧 Submit pull requests
+
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 🙏 Acknowledgments
+
+- [Flutter Team](https://flutter.dev/) for the amazing framework
+- [Firebase](https://firebase.google.com/) for robust backend services
+- All contributors and testers who helped shape this project
+
+---
+
+<p align="center">
+  Made with ❤️ for educators and students
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/github/stars/yourusername/taskmaster?style=social" alt="GitHub stars">
+  <img src="https://img.shields.io/github/forks/yourusername/taskmaster?style=social" alt="GitHub forks">
+</p>
+```
+
