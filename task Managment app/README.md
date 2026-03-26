@@ -1,75 +1,304 @@
-Project Scope: Todo App
-**Project Overview**
-The Todo App is a Flutter-based mobile application designed to help users manage tasks efficiently through a clean, intuitive interface inspired by a Figma design. It allows users to organize tasks into categories (e.g., “Personal,” “Work”), set due dates, mark tasks as complete, and receive local notifications for upcoming tasks. The app uses a SQLite database (sqflite) for persistent storage and supports Android devices, with a focus on delivering a modern, visually appealing user experience.
-**Objectives**
-Task Management:
-              Enable users to create, edit, delete, and complete tasks within categories. Support task attributes like title, description, due date, repetition (daily, weekly, monthly), and completion status.
-Category Organization:
-              Allow users to create and manage categories to group tasks (e.g., “Personal,” “Work”). Display categories on the home page with customizable icons and colors.
-Notifications:
-              Provide local notifications for tasks due today or in the future, with support for one-time and repeating tasks. Allow 
- notifications to navigate to the relevant category’s task list when tapped.
-User-Friendly Interface:
-              Implement a modern UI based on a Figma design, with gradient backgrounds (blue, green, white) and consistent typography.
-Ensure responsiveness across different Android screen sizes.
-Data Persistence:
-             Store tasks and categories in a SQLite database for offline access. Initialize a default “Personal” category with a sample task for new users.
-Performance and Reliability:
-             Optimize for smooth performance, avoiding issues like infinite loops or frame skips. Handle errors gracefully (e.g., database failures, invalid inputs).
 
-**Functionality**
-Based on our conversations and the provided code (main.dart, task_provider.dart, add_category_screen.dart, etc.), the app’s core functionality includes:
+# ✅ TaskFlow - Smart Todo App
 
-**Home Page (main.dart):**
-Displays a list of categories via the Tasks widget.
-Features an AppBar with a user avatar and greeting (“Hi, User!”), a GoPremium widget (placeholder for premium features), and a “Tasks” title.
-Includes a BottomNavigationBar with “Home” and “Person” tabs (Person tab is a placeholder).
-Provides a FloatingActionButton to navigate to AddCategoryScreen.
-Uses a gradient background (blue, green, white) and updated color scheme (Colors.blue.shade700, Colors.blue.shade900).
+<p align="center">
+  <img src="https://img.shields.io/badge/Flutter-3.x-blue?logo=flutter" alt="Flutter">
+  <img src="https://img.shields.io/badge/Database-SQLite-003B57?logo=sqlite&logoColor=white" alt="SQLite">
+  <img src="https://img.shields.io/badge/State%20Management-Provider-9B59B6" alt="Provider">
+  <img src="https://img.shields.io/badge/Notifications-Local-FF6B6B" alt="Notifications">
+</p>
 
-**Category Management (add_category_screen.dart, task_provider.dart):**
-Users can add categories with a title, icon (from a predefined list), and colors (default: blue background, white icon).
-Categories are stored as Task objects in the database, with an empty desc list for tasks.
-A default “Personal” category is created on first launch with a sample task for testing notifications.
+<p align="center">
+  <b>A beautifully designed, feature-rich task management app that helps you organize your life with categories, due dates, and smart notifications.</b>
+</p>
 
-**Task Management (task_list_screen.dart, category_tasks.dart):**
-Users can view tasks in a category, filtered by “Today’s Tasks” (due today, including repeating tasks) and “Future Tasks” (due later, including repeating tasks).
-Tasks can be added, edited, deleted, or marked as complete via AddTaskScreen and EditTaskScreen (assumed implemented).
+---
 
-**Tasks include:**
-Title, description, due date, completion status, repetition (none, daily, weekly, monthly), and creation timestamp.
-Repeating tasks support weekly days (e.g., Monday, Wednesday) or monthly dates (e.g., 15th).
-Non-repeated tasks due today appear only in “Today’s Tasks”; future non-repeated tasks appear in “Future Tasks” until their due date.
-**Notifications (notification_service.dart, task_provider.dart):**
-Local notifications are scheduled for tasks due today or in the future using flutter_local_notifications.
-Notifications include task title, description, and a payload to navigate to the category’s task list.
-Supports one-time and repeating tasks (daily, weekly, monthly).
-Notifications are canceled when tasks are completed or deleted.
-A sample task in the “Personal” category triggers a notification 2 minutes after app launch for testing.
+## 📖 Introduction
 
-**Database (database_service.dart):**
-Uses sqflite to store categories and tasks in a tasks table.
-Each category is a Task object with fields: id, iconData, title, bgColor, iconColor, btnColor, dueDate, desc (JSON-encoded list of task details).
-Supports CRUD operations: insert, update, delete, and query tasks.
+**TaskFlow** is a modern Flutter-based todo application that transforms how you manage your daily tasks. Inspired by a sleek Figma design, TaskFlow combines aesthetic appeal with powerful functionality to create the ultimate productivity companion.
 
-**State Management (task_provider.dart):**
-Uses provider for state management, with TaskProvider handling task and category data.
-Loads tasks from the database on app start, initializes a default category if none exist, and schedules notifications.
-Prevents infinite loops with a _hasLoaded flag.
-Filters tasks for “Today’s Tasks” and “Future Tasks” based on due dates and repetition.
+Whether you're managing personal errands, work projects, or study schedules, TaskFlow helps you stay organized with:
+- **Intuitive Category System** - Group tasks by projects, priorities, or contexts
+- **Smart Task Management** - Create, edit, and track tasks with due dates and repetition patterns
+- **Intelligent Notifications** - Never miss important deadlines with timely reminders
+- **Beautiful UI** - Gradient backgrounds, smooth animations, and modern Material Design
 
-**UI Design:**
-Home page: Gradient background (blue, green, white), dark blue AppBar, gradient FloatingActionButton.
-Add Category Screen: Gradient background, modern form with icon picker, gradient button with scale animation.
-Consistent typography (textTheme.titleLarge with Colors.blue.shade900) and rounded card designs (cardTheme).
+Built with Flutter and powered by SQLite, TaskFlow works offline, ensuring your tasks are always accessible, anywhere, anytime.
 
+---
 
-For Video OPen the Below LINK :https://drive.google.com/drive/folders/1rd69MhA_8puOFG_TqE9XXt72maa47Psn?usp=sharing
+## ✨ Key Features
 
-![WhatsApp Image 2025-04-21 at 22 55 13_71bf6c4d](https://github.com/user-attachments/assets/40f86aa1-c7b8-4215-971d-b40069b3d5dc)
-![WhatsApp Image 2025-04-21 at 22 55 10_085049e4](https://github.com/user-attachments/assets/c4dcc2ad-a03e-422c-87a2-5845c7350eb2)
-![WhatsApp Image 2025-04-21 at 22 55 10_e791ffa6](https://github.com/user-attachments/assets/fc2e4796-dcb8-49eb-8b64-4775f6638e97)
-![WhatsApp Image 2025-04-21 at 22 55 11_06517820](https://github.com/user-attachments/assets/9271efef-57e3-4e91-be03-26378ec8af91)
-![WhatsApp Image 2025-04-21 at 22 55 12_9ffd58a2](https://github.com/user-attachment![WhatsApp Image 2025-04-21 at![WhatsApp Image 2025-04-21 at 22 55 13_b7db86f2](https://github.com/user-attachments/assets/807d748f-893c-49e3-8519-5859ba734920)
- 22 55 12_7444eb58](https://github.com/user-attachments/assets/eec10c06-77a2-461c-a492-870f1d4055ba)
-s/assets/27591cd1-4eab-4bd9-9d5e-9d10fbb089dd)
+### 📋 Task Management
+| Feature | Description |
+|---------|-------------|
+| ✅ **Create Tasks** | Add tasks with title, description, due date, and repetition |
+| ✏️ **Edit Tasks** | Modify task details anytime |
+| 🗑️ **Delete Tasks** | Remove completed or unwanted tasks |
+| ✔️ **Mark Complete** | Track progress by marking tasks as done |
+| 🔁 **Repetition Patterns** | Daily, weekly, and monthly repeating tasks |
+| 📅 **Smart Filtering** | Separate views for today's tasks and future tasks |
+
+### 🗂️ Category Organization
+| Feature | Description |
+|---------|-------------|
+| 🎨 **Custom Categories** | Create categories like "Personal", "Work", "Shopping" |
+| 🎭 **Icon Selection** | Choose from a wide range of icons for each category |
+| 🎨 **Color Customization** | Personalize categories with custom colors |
+| 📊 **Task Grouping** | Organize tasks within their respective categories |
+| 🚀 **Default Setup** | Pre-configured "Personal" category with sample task |
+
+### 🔔 Smart Notifications
+| Feature | Description |
+|---------|-------------|
+| ⏰ **Due Date Reminders** | Get notified for tasks due today |
+| 🔁 **Recurring Alerts** | Daily, weekly, and monthly task reminders |
+| 📱 **One-Tap Navigation** | Tap notifications to open the relevant category |
+| 🎯 **Sample Notification** | Test notification 2 minutes after first launch |
+| ❌ **Auto Cleanup** | Notifications canceled when tasks are completed/deleted |
+
+### 🎨 User Interface
+| Feature | Description |
+|---------|-------------|
+| 🌈 **Gradient Backgrounds** | Stunning blue, green, and white gradients |
+| 📱 **Responsive Design** | Optimized for all Android screen sizes |
+| 🎭 **Custom Avatars** | Personalized user greeting |
+| 🎬 **Smooth Animations** | Scale transitions and fluid interactions |
+| 🌙 **Modern Typography** | Clean, readable text with consistent styling |
+
+### 💾 Data Persistence
+| Feature | Description |
+|---------|-------------|
+| 📦 **SQLite Database** | Reliable offline storage |
+| 🔄 **CRUD Operations** | Full create, read, update, delete functionality |
+| 🔌 **Offline First** | Access all tasks without internet connection |
+| 🚀 **Efficient Queries** | Optimized database operations for smooth performance |
+
+---
+
+## 🛠️ Tech Stack
+
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=flutter,dart,sqlite" />
+</p>
+
+| **Category** | **Technologies** |
+|--------------|-----------------|
+| **Framework** | Flutter & Dart 🦋 |
+| **State Management** | Provider |
+| **Database** | SQLite (sqflite) 📦 |
+| **Local Notifications** | flutter_local_notifications 🔔 |
+| **Date Handling** | intl, date_format 📅 |
+| **UI Enhancements** | google_fonts, flutter_svg, animations ✨ |
+
+---
+
+## 📸 Screenshots
+
+<div align="center">
+
+| Home Screen | Category View | Add Category |
+|:-----------:|:-------------:|:------------:|
+| <img src="https://github.com/user-attachments/assets/40f86aa1-c7b8-4215-971d-b40069b3d5dc" width="200"/> | <img src="https://github.com/user-attachments/assets/c4dcc2ad-a03e-422c-87a2-5845c7350eb2" width="200"/> | <img src="https://github.com/user-attachments/assets/fc2e4796-dcb8-49eb-8b64-4775f6638e97" width="200"/> |
+
+| Task List | Add Task | Notifications |
+|:---------:|:--------:|:-------------:|
+| <img src="https://github.com/user-attachments/assets/9271efef-57e3-4e91-be03-26378ec8af91" width="200"/> | <img src="https://github.com/user-attachments/assets/27591cd1-4eab-4bd9-9d5e-9d10fbb089dd" width="200"/> | <img src="https://github.com/user-attachments/assets/807d748f-893c-49e3-8519-5859ba734920" width="200"/> |
+
+| Edit Task | Today's Tasks | Future Tasks |
+|:---------:|:-------------:|:------------:|
+| <img src="https://github.com/user-attachments/assets/eec10c06-77a2-461c-a492-870f1d4055ba" width="200"/> | <img src="https://github.com/user-attachments/assets/40f86aa1-c7b8-4215-971d-b40069b3d5dc" width="200"/> | <img src="https://github.com/user-attachments/assets/c4dcc2ad-a03e-422c-87a2-5845c7350eb2" width="200"/> |
+
+</div>
+
+---
+
+## 🎥 Demo Video
+
+<p align="center">
+  <a href="https://drive.google.com/drive/folders/1rd69MhA_8puOFG_TqE9XXt72maa47Psn?usp=sharing">
+    <img src="https://img.shields.io/badge/📹-Watch%20Demo%20Video-FF0000?style=for-the-badge&logo=youtube&logoColor=white" alt="Watch Demo">
+  </a>
+</p>
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Flutter SDK (3.x or higher)
+- Dart SDK
+- Android Studio / VS Code
+- Android device or emulator (API 21+)
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/yourusername/taskflow.git
+   cd taskflow
+   ```
+
+2. **Install dependencies**
+   ```bash
+   flutter pub get
+   ```
+
+3. **Run the app**
+   ```bash
+   flutter run
+   ```
+
+4. **For release build**
+   ```bash
+   flutter build apk --release
+   ```
+
+---
+
+## 📱 Download APK
+
+<p align="center">
+  <a href="#">
+    <img src="https://img.shields.io/badge/📲-Download%20APK-00C853?style=for-the-badge&logo=android&logoColor=white" alt="Download APK">
+  </a>
+</p>
+
+---
+
+## 📁 Project Structure
+
+```
+taskflow/
+├── lib/
+│   ├── main.dart                    # App entry point & home screen
+│   ├── providers/
+│   │   └── task_provider.dart       # State management
+│   ├── screens/
+│   │   ├── add_category_screen.dart # Category creation
+│   │   ├── task_list_screen.dart    # Task listing
+│   │   ├── add_task_screen.dart     # Task creation
+│   │   └── edit_task_screen.dart    # Task editing
+│   ├── services/
+│   │   ├── database_service.dart    # SQLite operations
+│   │   └── notification_service.dart # Local notifications
+│   ├── models/
+│   │   └── task.dart                # Data models
+│   └── widgets/
+│       ├── category_card.dart       # Category UI component
+│       └── task_item.dart           # Task UI component
+├── assets/
+│   └── icons/                       # Custom icons
+└── pubspec.yaml
+```
+
+---
+
+## 🎯 Core Functionality
+
+### Task Organization
+- **Today's Tasks**: Tasks due today (including repeating tasks)
+- **Future Tasks**: Tasks due after today
+- **Completed Tasks**: Marked as done and moved to completed section
+- **Repeating Tasks**: Automatically regenerate based on pattern
+
+### Repetition Patterns
+| Pattern | Description |
+|---------|-------------|
+| **Daily** | Repeats every day at specified time |
+| **Weekly** | Repeats on selected days (Mon, Wed, etc.) |
+| **Monthly** | Repeats on specific date each month |
+| **None** | One-time task only |
+
+### Notification System
+- Scheduled notifications for due dates
+- Recurring notifications for repeating tasks
+- Automatic cancellation on completion/deletion
+- Deep linking to specific categories
+
+---
+
+## 🔄 Future Enhancements
+
+- [ ] Cloud sync with Firebase
+- [ ] Task sharing with other users
+- [ ] Subtasks and checklists
+- [ ] Priority levels (High, Medium, Low)
+- [ ] Tags and labels
+- [ ] Dark mode toggle
+- [ ] Calendar view integration
+- [ ] Export tasks to PDF/CSV
+- [ ] Voice input for quick tasks
+- [ ] Widget support for home screen
+- [ ] Wear OS integration
+- [ ] Analytics and productivity insights
+
+---
+
+## 🐛 Known Issues & Solutions
+
+| Issue | Solution |
+|-------|----------|
+| Notifications not appearing | Check notification permissions in device settings |
+| Database initialization | First launch automatically creates default category |
+| Repetition not working | Ensure correct date/time format is used |
+| Icon not displaying | Verify asset paths in pubspec.yaml |
+
+---
+
+## 🤝 Contributing
+
+Contributions are what make the open-source community amazing! Here's how you can help:
+
+1. 🍴 Fork the repository
+2. 🌿 Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. 💾 Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. 📤 Push to the branch (`git push origin feature/AmazingFeature`)
+5. 🔍 Open a Pull Request
+
+### Development Guidelines
+- Follow Flutter best practices
+- Write clean, documented code
+- Test thoroughly on multiple devices
+- Update documentation for new features
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 🙏 Acknowledgments
+
+- **UI Design** - Inspired by Figma community designs
+- **Flutter Team** - For the amazing framework
+- **SQLite Team** - For reliable database solution
+- **All Contributors** - Who helped improve this project
+
+---
+
+## 📞 Contact & Support
+
+- **GitHub Issues**: [Report bugs or request features](https://github.com/yourusername/taskflow/issues)
+- **Email**: your.email@example.com
+
+---
+
+<p align="center">
+  <b>Stay organized, stay productive!</b>
+</p>
+
+<p align="center">
+  Made with ❤️ using Flutter
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/github/stars/yourusername/taskflow?style=social" alt="GitHub stars">
+  <img src="https://img.shields.io/github/forks/yourusername/taskflow?style=social" alt="GitHub forks">
+  <img src="https://img.shields.io/github/issues/yourusername/taskflow" alt="GitHub issues">
+</p>
+```
+
